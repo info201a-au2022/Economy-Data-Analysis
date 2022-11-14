@@ -25,7 +25,6 @@ library(ggplot2)
 
 
 ```{r}
-# Sources
 source("../source/chart_one.R")
 source("../source/chart_two.R")
 source("../source/chart_three.R")
@@ -36,7 +35,7 @@ source("../source/tables_summary.R")
 
 ```{r echo=FALSE}
 # Graph 1
-View(house_plot)
+house_plot
 ```
 
 
