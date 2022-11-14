@@ -18,37 +18,27 @@ knitr::opts_chunk$set(echo = TRUE)
 ## ACCESSING THE /source DIRECTORY
 ### Example 1: Source some code and run a function
 ```{r}
-# Example 1: Note relative path, which can be read: Up one
-# directory(..), down into source (/source), and 
-# then "source" an R file (data_access.R)
-source("../source/data_access.R")
-data_access_test()
+# Libraries
+library(tidyverse)
+library(ggplot2)
 ```
 
-### Example 2: Initialize a variable and then use it
+
 ```{r}
-# Example 1: This function was "sourced" above
-msg <- data_access_test(" Morgan!")
+# Sources
+source("../source/chart_one.R")
+source("../source/chart_two.R")
+source("../source/chart_three.R")
+source("../source/summary_information.R.R")
+source("../source/tables_summary.R")
 ```
 
-> `r msg` Hope you have a good day!! 
 
-## ABOUT THIS FILE: 
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r echo=FALSE}
+# Graph 1
+View(house_plot)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+The importance of the graph shows the increasing prices of the house market. 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
