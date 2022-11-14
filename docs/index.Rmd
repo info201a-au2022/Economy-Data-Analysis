@@ -26,10 +26,10 @@ library(ggplot2)
 
 ```{r}
 source("../source/chart_one.R")
-source("../source/chart_two.R")
+#source("../source/chart_two.R")
 source("../source/chart_three.R")
-source("../source/summary_information.R.R")
-source("../source/tables_summary.R")
+#("../source/summary_information.R.R")
+#source("../source/tables_summary.R")
 ```
 
 
@@ -40,4 +40,9 @@ house_plot
 
 
 The importance of the graph shows the increasing prices of the house market. 
+
+```{r}
+plot_of_age_vs_annualincome
+```
+
 

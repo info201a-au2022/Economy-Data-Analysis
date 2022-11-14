@@ -7,7 +7,7 @@ library(ggplot2)
 # Dataframe
 credit_classification <- read.csv("../data/credit_class.csv", stringsAsFactors = FALSE)
 house_price <- read.csv("../data/house_prices.csv", stringsAsFactors = FALSE)
-#avg_income <- read.csv("uw_classes/Info201/Assignments/project-group-7-section-ab/data/avg_income_yearly.csv")
+avg_income <- read.csv("../data/avg_income_yearly.csv")
 
 
 #Plot
