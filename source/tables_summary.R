@@ -1,6 +1,9 @@
 # source file that creates a table of summary information 
 # to be included in your report
-credit_classification <- read.csv("/Users/amyofor/Documents/info201/project-group-7-section-ab/data/credit_class.csv")
+credit_classification <- read.csv("../data/credit_class.csv")
+View(credit_classification)
+getwd()
+setwd()
 View(credit_classification)
 table <- credit_classification %>% 
   group_by(Age) %>%
