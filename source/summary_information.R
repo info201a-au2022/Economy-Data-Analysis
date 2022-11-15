@@ -20,7 +20,15 @@ sum_percent_income_v2 <- function () {
 
 sum_percent_house <- sum(house_prices$PercentChange, na.rm = TRUE)
 
+#chart2 summary information
+# Get Max of the multiple columns
+num_col <- ncol(credit_class)
+num_row <- nrow(credit_class)
 
+max_income <- max(credit_class[["Annual_Income"]])
+avg_income <- mean(credit_class[["Annual_Income"]])
+min_income <- min(credit_class[["Annual_Income"]])
+median_income <- median(credit_class[["Annual_Income"]])
 
 
 
