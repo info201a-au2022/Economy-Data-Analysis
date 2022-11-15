@@ -43,7 +43,7 @@ The scatter plot demonstrates the average price of houses in the first quarter o
 # Graph 2
 annual_income_credit
 ```
-The Kernel Density plot demonstrates the correlation between annual income to credit scores by classifying credit scores as good, bad, and standard. The Annual Income data ranges between 0 through 180,000. The Density plot shows a nonnumerical way of representing the data. For instance the proportion of annual income for good credit score between 0-50,000 can be represent by the area under the cure between 0-50,000 on the x-axis (Annual_Income). 
+The Kernel Density plot demonstrates the correlation between annual income to credit scores by classifying credit scores as good, bad, and standard. The Annual Income data ranges between 7005 through 179988 The Density plot shows a nonnumerical way of representing the data. For instance the proportion of annual income for good credit score between 0-50,000 can be represent by the area under the cure between 0-50,000 on the x-axis (Annual_Income). 
 
 
 #### Figure 3
