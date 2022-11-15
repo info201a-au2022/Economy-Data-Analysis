@@ -42,7 +42,7 @@ house_plot
 The importance of the graph shows the increasing prices of the house market. 
 
 ```{r}
-plot_of_age_vs_annualincome
+plot_of_age_vs_occupation
 ```
 
 
