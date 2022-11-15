@@ -21,12 +21,17 @@ house_vs_income <- house_vs_income %>%
   select(difference)
 
 #2
+annual_income_credit <- credit_class %>%
+  filter(Annual_Income > 50000) %>%
+  group_by(Credit_Mix, Age) %>%
+  summarise(credit_class = max(Annual_Income, na.rm = TRUE)) %>%
+  arrange(desc(credit_class))
+View(annual_income_credit)
+  
+#3
 occupation_and_age <- credit_class %>% 
   group_by(Annual_Income) %>% 
   select(Annual_Income, Age, Occupation) %>% 
   arrange(-Annual_Income, Age, Occupation)
-
-#3
-
 
 
