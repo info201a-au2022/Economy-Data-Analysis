@@ -10,11 +10,11 @@ getwd()
 credit_class <- read.csv("../data/credit_class.csv", stringsAsFactors = FALSE)
 
 #density plot
-ggplot(credit_class, aes(x = Annual_Income, fill = Credit_Mix)) +
+annual_income_credit <- ggplot(credit_class, aes(x = Annual_Income, fill = Credit_Mix)) +
   geom_density(alpha = 0.4) + 
   scale_y_continuous(labels = scales :: comma) +
   labs(title = "Income distribution by credit")
-
+annual_income_credit
 
 
 
