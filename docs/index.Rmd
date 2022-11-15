@@ -1,44 +1,52 @@
 ---
-title: "Your Project Title"
-author: "project team members"
+title: "US Economy: Socioeconomic, House Market "
+author: " Lesther Dumosmog || Amy Oguejiofor || Nuria Abas Ibrahim"
 date: "1/22/2022"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
-## What is this file for?
-
-* This file will eventually become your project report for **P02: Exploratory Data Analysis**. Specifically, you will write rmarkdown to report your exploratory data analysis.
-
-* Please see Canvas for more details.
-
-## ACCESSING THE /source DIRECTORY
-### Example 1: Source some code and run a function
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Libraries
 library(tidyverse)
 library(ggplot2)
 ```
 
 
-```{r}
-# Sources
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 source("../source/chart_one.R")
 source("../source/chart_two.R")
 source("../source/chart_three.R")
-source("../source/summary_information.R.R")
+("../source/summary_information.R.R")
 source("../source/tables_summary.R")
 ```
+#### Dynamic Summary
+The purpose of this report is to showcase the economic factors in retrospect with visualization. One of the biggest concerns in the economy in the US is rapid growth in the house market. Figure 1 represents growth of the house market dating back to 1963. Taking consideration of the inflation prices to the current date, the market has increased a total of `sum_percent_income_v2` percent. 
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+house_vs_income
+occupation_and_age
 
-```{r echo=FALSE}
+```
+Table contains multiple files that places focus on different economic factors. First table represents the percentage change of annual income and the house market over the years showing the overall difference. The second table shows the occupation and age which shows the annual income per indivdual. 
+
+#### Figure 1
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Graph 1
-View(house_plot)
+house_plot
+```
+
+The scatter plot demonstrates the average price of houses in the first quarter of every year. The data dates back from 1963 up till 2021 showcasing the development of the house market. The scatter plot shows a slow growth period but begins to quickie escalates in 2007 but dips back down in 2009. Year 2007 represents the high access  to mortgage credit, allowing buyers to purchase higher costs homes. But begins to to show rapid growth in the later years, even more in 2020. The effect of Covid-19 can be shown as demands increases and supply begins to decrease, showcasing the increase prices within the house market. All the
+
+#### Figure 2
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+age_credit_mix
 ```
 
 
-The importance of the graph shows the increasing prices of the house market. 
+#### Figure 3
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+plot_of_age_vs_occupation
+```
+
 

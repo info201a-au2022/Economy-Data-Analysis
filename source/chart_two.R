@@ -1,6 +1,7 @@
 # source file that creates your second chart
 install.packages("tidyverse")
 install.packages("ggplot")
+
 library(tidyverse)
 library(ggplot2)
 getwd()
