@@ -17,12 +17,20 @@ library(ggplot2)
 source("../source/chart_one.R")
 #source("../source/chart_two.R")
 source("../source/chart_three.R")
-#("../source/summary_information.R.R")
-#source("../source/tables_summary.R")
+("../source/summary_information.R.R")
+source("../source/tables_summary.R")
 ```
 #### Dynamic Summary
+The purpose of this report is to showcase the economic factors in retrospect with visualization. One of the biggest concerns in the economy in the US is rapid growth in the house market. Figure 1 represents growth of the house market dating back to 1963. Taking consideration of the inflation prices to the current date, the market has increased a total of `sum_percent_income_v2` percent. 
 
-#### Data Frame 1
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+house_vs_income
+occupation_and_age
+
+```
+Table contains multiple files that places focus on different economic factors. First table represents the percentage change of annual income and the house market over the years showing the overall difference. The second table shows the occupation and age which shows the annual income per indivdual. 
+
+#### Figure 1
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Graph 1
 house_plot

@@ -20,4 +20,13 @@ house_vs_income <- house_vs_income %>%
   mutate(difference = house_percent - income_percent) %>% 
   select(difference)
 
+#2
+occupation_and_age <- credit_class %>% 
+  group_by(Annual_Income) %>% 
+  select(Annual_Income, Age, Occupation) %>% 
+  arrange(-Annual_Income, Age, Occupation)
+
+#3
+
+
 
