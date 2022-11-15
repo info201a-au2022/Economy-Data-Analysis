@@ -13,3 +13,8 @@ age_credit_mix <- ggplot(credit_class, aes(x = Age, y = Annual_Income, fill = Cr
 age_credit_mix
 pie <- age_credit_mix + coord_polar("y")
 pie
+
+
+
+
+
