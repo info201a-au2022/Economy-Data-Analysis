@@ -36,7 +36,7 @@ Table contains multiple files that places focus on different economic factors. F
 house_plot
 ```
 
-The scatter plot demonstrates the average price of houses in the first quarter of every year. The data dates back from 1963 up till 2021 showcasing the development of the house market. The scatter plot shows a slow growth period but begins to quickie escalates in 2007 but dips back down in 2009. Year 2007 represents the high access  to mortgage credit, allowing buyers to purchase higher costs homes. But begins to to show rapid growth in the later years, even more in 2020. The effect of Covid-19 can be shown as demands increases and supply begins to decrease, showcasing the increase prices within the house market. All
+The scatter plot demonstrates the average price of houses in the first quarter of every year. The data dates back from 1963 up till 2021 showcasing the development of the house market. The scatter plot shows a slow growth period but begins to quickie escalates in 2007 but dips back down in 2009. Year 2007 represents the high access  to mortgage credit, allowing buyers to purchase higher costs homes. But begins to to show rapid growth in the later years, even more in 2020. The effect of Covid-19 can be shown as demands increases and supply begins to decrease, showcasing the increase prices within the house market. All the
 
 
 #### Data Frame 3
