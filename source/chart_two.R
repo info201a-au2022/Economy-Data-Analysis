@@ -11,3 +11,5 @@ credit_class <- read.csv("../data/credit_class.csv", stringsAsFactors = FALSE)
 age_credit_mix <- ggplot(credit_class, aes(x = Age, y = Annual_Income, fill = Credit_Mix)) + 
   geom_bar(width = 1, stat = "identity") 
 age_credit_mix
+pie <- age_credit_mix + coord_polar("y")
+pie
