@@ -50,5 +50,5 @@ The Kernel Density plot demonstrates the correlation between annual income to cr
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 plot_of_age_vs_occupation
 ```
-
+The bar graph above shows the relationship between Age, Occupation and Annual Income. The data demonstrates different ages that range from as young as 14 to 56 which is then compared against different types of occupations where typically older people benefit from higher paying jobs, such as engineer or doctor. So ultimately the data is showing how people in the economy now typically earn more as they age and in high intensive careers such as, **finance** and **medicine**.
 
