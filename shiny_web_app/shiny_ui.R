@@ -16,7 +16,14 @@ avg_income <- read.csv("../data/avg_income_yearly.csv")
 
 intro_panel <- tabPanel(
   "Introduction",
-  titlePanel("US Economy: Socioeconomic & House Market")
+  titlePanel("US Economy: Socioeconomic & House Market"),
+  p("The US economy is considered one of the strongest economies in the world. In our mixed market economy, the US continuously exhibits strengths. 
+    However, during the COVID-19 pandemic our economy took several hits. Job growth slowed, overall wages were lost and ultimately the 
+    economy and the housing markets had been negatively affected. Due to the changing atmosphere of America's economic systems, 
+    we decided to focus our project on the highs and lows of the economy and housing market. Specifically, we want to answer which demographics have suffered 
+    under our economic systems, the assets these groups have, and what resources have helped alter the economic landscape . To help find those answers we plan to use data 
+    that gives information relating to the socioeconomic statuses of citizens. The information from the data includes occupation, annual incomes, salaries, bank loans, credit scores, and more."),
+  img("", src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dallasfed.org%2Fresearch%2FUS&psig=AOvVaw09Fuv26AtsCiffj6LokLAU&ust=1669954889960000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCOCdkPXI1_sCFQAAAAAdAAAAABAD")
 )
 
 interaction_one <- tabPanel(
