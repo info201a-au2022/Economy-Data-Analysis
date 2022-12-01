@@ -19,11 +19,31 @@ intro_panel <- tabPanel(
   titlePanel("US Economy: Socioeconomic & House Market")
 )
 
+interaction_one <- tabPanel(
+  "Graph 1",
+  titlePanel("Title")
+)
+
+interaction_two <- tabPanel(
+  "Graph 2",
+  titlePanel("Title")
+)
+
+interaction_three <- tabPanel(
+  "Graph 3",
+  titlePanel("Title")
+)
+
+conclusion_panel <- tabPanel(
+  "Conclusion",
+  titlePanel("Summary Takeaways")
+)
+
 shinyUI <- navbarPage(
-  "Introduction",
-  intro_panel
-  # plot 1
-  # plot 2
-  # plot 3
-  # conclusion_panel
+  h4("Navigation"),
+  intro_panel,
+  interaction_one,
+  interaction_two,
+  interaction_three,
+  conclusion_panel
 )
