@@ -9,6 +9,7 @@
 
 library(shiny)
 library(ggplot2)
+library(shinythemes)
 
 credit_classification <- read.csv("../data/credit_class.csv", stringsAsFactors = FALSE)
 house_price <- read.csv("../data/house_prices.csv", stringsAsFactors = FALSE)
@@ -48,6 +49,7 @@ conclusion_panel <- tabPanel(
 
 shinyUI <- navbarPage(
   h4("Navigation"),
+  theme = shinytheme("sandstone"),
   intro_panel,
   interaction_one,
   interaction_two,
