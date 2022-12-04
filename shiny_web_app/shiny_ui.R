@@ -11,9 +11,7 @@ library(shiny)
 library(ggplot2)
 library(shinythemes)
 
-credit_classification <- read.csv("../data/credit_class.csv", stringsAsFactors = FALSE)
-house_price <- read.csv("../data/house_prices.csv", stringsAsFactors = FALSE)
-avg_income <- read.csv("../data/avg_income_yearly.csv")
+
 
 intro_panel <- tabPanel(
   "Introduction",
@@ -29,9 +27,24 @@ intro_panel <- tabPanel(
   img("", src="https://www.bea.gov/system/files/gdp3q22-adv-chart-01.png", height = 250, width = 500)
 )
 
+# Graph 1
 interaction_one <- tabPanel(
   "Graph 1",
-  titlePanel("Title")
+  titlePanel(strong("Average Income vs. Average House Price (1962-2021)")),
+    sidebarLayout(
+      sidebarPanel(
+        helpText("Choose the following variables to show on the graph"),
+        checkboxGroupInput(
+          "checkGroup",
+          h2("Checkbox Group"),
+          choices = list("Average House Pirce" = 1,
+                         "Average Annual Income" = 2),
+          selected = 1
+        )
+      ),
+      mainPanel()
+    )
+             
 )
 
 interaction_two <- tabPanel(
@@ -57,7 +70,9 @@ conclusion_panel <- tabPanel(
       p("Amy Oguejiofor || amyo6@uw.edu"),
       p("Nuria Abas Ibrahim || nuriai2@uw.edu")
     ),
-    mainPanel()
+    mainPanel(
+      plotlyOutput("house_price")
+    )
   )
 )
 
@@ -69,7 +84,7 @@ report_panel <- tabPanel(
     position = "right",
     sidebarPanel(
       h4(strong("Acknowledgment")),
-      p("Big thanks for U.S. Bureau of Labor Statistics for providing statistics as well as kraggle for publishing a data table to work from. As well as the
+      p("Big thanks for U.S. Bureau of Labor Statistics for providing statistics as well as kaggle for publishing a data table to work from. As well as the
         articles provided in CBPP which a lot of our inspiration came from."),
       br(),
       br(),
@@ -128,7 +143,7 @@ report_panel <- tabPanel(
       p("3 )Among the unemployed, the number of permanent job losers decreased by 173,000 to 1.2 million in September"),
       p("4) The number of discouraged workers, a subset of the marginally attached who believed that no jobs were available for them, increased 
         by 119,000 to 485,000 in September."),
-      img("", src="../docs/images/DatasetTable.png", height = 250, width = 500, align = "center"),
+      img(src="/www/DatasetTable.png", height = 250, width = 500, align = "center"),
       p("The pandemic impacted everyone but was not distributed evenly to all social classes. In fact, it remained more prevalent in groups 
         such as Blacks, Latinos, and other groups of minority. This is the result due to structual racism shifting the most economic hardships 
         to those of color."),
@@ -164,7 +179,7 @@ report_panel <- tabPanel(
       p("The dataset details a lot of information related to finance specifically credit scores. It gives data related to credit score, SSN, occupation, individual 
         base salaries and number of bank accounts a person has. All of this data is helpful to our project because it helps us see how credit scores differ based on 
         socioeconomic status and one way to determine that is through knowing occupation."),
-      img("", src="../docs/images/DatasetTable.png", height = 250, width = 500, align = "center"),
+      img(src="../docs/images/DatasetTable.png", height = 250, width = 500, align = "center"),
       p("The data was collected by Rohan Paris, a software developer at Cognizant. The dataset was updated about 4 months ago. The purpose of the set was to identify 
         people’s credit scores with only occupation and minimal bank information given. It was funded through Kaggle. The people/organizations likely to benefit from 
         the data would be Kaggle because there would be more interactions with their site and also people who generally want to learn more about the development of 
