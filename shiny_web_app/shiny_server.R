@@ -16,7 +16,6 @@ library(quantmod)
 library(plotly)
 
 
-
 credit_classification <- read.csv("data/credit_class.csv", stringsAsFactors = FALSE)
 house_price <- read.csv("data/house_prices.csv", stringsAsFactors = FALSE)
 avg_income <- read.csv("data/avg_income_yearly.csv")
@@ -79,7 +78,16 @@ shinyServer <- function (input, output){
   output$mytable <- DT::renderDataTable({
     percent_change_df
   })
- 
+  
+output$graph_2 <- renderPlot({
+    graph2_plot <- ggplot(data = credit_classification) +
+      geom_bar(aes(x= credit_classification$Age, 
+                   y= credit_classification$Num_of_Loan,
+                   stat="identity")) +
+      labs(x= "Age", y = "Number of Bank Loans")
+    graph2_plot
+})
+
  output$graph_3 <- renderPlot({
    graph3_plot <- ggplot(data = poverty_percent_f) +
      geom_line(mapping = aes_string (
