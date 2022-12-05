@@ -48,7 +48,7 @@ percent_change_df <- house_and_annual %>%
   group_by(Year)
 percent_change_df = percent_change_df[-1,]
 
-poverty_percent <- poverty_percent %>% 
+poverty_percent_f <- poverty_percent %>% 
   mutate(under_18 = as.numeric(str_remove_all(Under.18, "[%]"))) %>%
   mutate(x18_to_64 = as.numeric(str_remove_all(X18.to.64, "[%]"))) %>% 
   mutate(x65_and_older = as.numeric(str_remove_all(X65.and.older, "[%]"))) %>% 
@@ -81,9 +81,9 @@ shinyServer <- function (input, output){
   })
  
  output$graph_3 <- renderPlot({
-   graph3_plot <- ggplot(data = poverty_percent) +
+   graph3_plot <- ggplot(data = poverty_percent_f) +
      geom_line(mapping = aes_string (
-       x = poverty_percent$Year,
+       x = poverty_percent_f$Year,
        y = input$graph3_input
      ), color = "purple", alpha = .3) +
      labs(

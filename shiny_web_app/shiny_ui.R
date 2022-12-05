@@ -4,16 +4,6 @@ library(ggplot2)
 library(shinythemes)
 library(DT)
 
-credit_classification <- read.csv("data/credit_class.csv", stringsAsFactors = FALSE)
-house_price <- read.csv("data/house_prices.csv", stringsAsFactors = FALSE)
-avg_income <- read.csv("data/avg_income_yearly.csv")
-income_df <- read.csv("data/income_race.csv", stringsAsFactors = FALSE)
-poverty_percent <- read.csv("data/percent_poverty.csv", stringsAsFactors =  FALSE)
-
-
-
-
-
 
 intro_panel <- tabPanel(
   "Introduction",
@@ -26,7 +16,21 @@ intro_panel <- tabPanel(
     under our economic systems, the assets these groups have, and what resources have helped alter the economic landscape . To help find those answers we plan to use data 
     that gives information relating to the socioeconomic statuses of citizens. The information from the data includes occupation, annual incomes, salaries, bank loans, credit scores, and more."),
   br(),
-  img("", src="https://www.bea.gov/system/files/gdp3q22-adv-chart-01.png", height = 250, width = 500)
+  h3(strong("Abstract")),
+  sidebarLayout(
+    mainPanel(
+      img("", src="https://www.realestatewitch.com/wp-content/uploads/2021/10/pti-1536x1024.png.webp", height = 250, width = 500),
+      br(),
+      img("", src="https://img.money.com/2017/06/170613-how-old-is-old.jpg?quality=60&w=1600", height = 250, width = 500)
+    ),
+    sidebarPanel (
+      p("Demonstrating the differences in Annual income compared to the house
+    market. As well as show the percentage of change prior to the each of 
+      the income/cost"),
+      hr(style = "border-top: 1px solid #000000;"),
+      p("Which groups are more susceptible to poverty as well as identifying reasonings for the occurance")
+    ) 
+  )
 )
 
 
@@ -149,9 +153,9 @@ report_panel <- tabPanel(
 
     mainPanel(
       hr(style = "border-top: 1px solid #000000;"),
-      p("INFO-201: Technical Foundations of Informatics - The Information School - University of Washington", align = "center"),
-      p("Date: Autumn 2022", align = "center"),
-      p("Project: credit_class", align = "center"),
+      h3("INFO-201: Technical Foundations of Informatics - The Information School - University of Washington", align = "center"),
+      h3("Date: Autumn 2022", align = "center"),
+      h3("Project: credit_class", align = "center"),
       
       br(),
       br(),
