@@ -27,25 +27,42 @@ intro_panel <- tabPanel(
   img("", src="https://www.bea.gov/system/files/gdp3q22-adv-chart-01.png", height = 250, width = 500)
 )
 
+
+
 # Graph 1
+select_values <- c(colnames(house_and_annual[2]),colnames(house_and_annual[8]))
+date_range <- house_and_annual$Year
+
 interaction_one <- tabPanel(
   "Graph 1",
   titlePanel(strong("Average Income vs. Average House Price (1962-2021)")),
     sidebarLayout(
       sidebarPanel(
         helpText("Choose the following variables to show on the graph"),
-        checkboxGroupInput(
-          "checkGroup",
-          h2("Checkbox Group"),
-          choices = list("Average House Pirce" = 1,
-                         "Average Annual Income" = 2),
-          selected = 1
+        selectInput(
+          "y_input",
+          label = "Choose Graph",
+          choices = select_values,
+          selected = colnames(house_and_annual[2])
+        ),
+        sliderInput(
+          "date_input",
+          label = "Choose Year",
+          min = min(house_and_annual$Year),
+          max = max(house_and_annual$Year),
+          value = c(1970,2000),
+          sep = ""
         )
       ),
-      mainPanel()
+      mainPanel(
+        plotOutput("graph_1"),
+        plotOutput("plot")
+      )
     )
-             
 )
+
+?toJSON
+
 
 interaction_two <- tabPanel(
   "Graph 2",
@@ -70,9 +87,7 @@ conclusion_panel <- tabPanel(
       p("Amy Oguejiofor || amyo6@uw.edu"),
       p("Nuria Abas Ibrahim || nuriai2@uw.edu")
     ),
-    mainPanel(
-      plotlyOutput("house_price")
-    )
+    mainPanel()
   )
 )
 
