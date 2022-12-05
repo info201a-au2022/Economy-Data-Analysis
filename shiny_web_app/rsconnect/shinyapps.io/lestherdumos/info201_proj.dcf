@@ -5,9 +5,10 @@ account: lestherdumos
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7814239
-bundleId: 6592491
+bundleId: 6592902
 url: https://lestherdumos.shinyapps.io/info201_proj/
-when: 1670228684.60057
-lastSyncTime: 1670228684.60058
+when: 1670235830.41853
+lastSyncTime: 1670235830.41854
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: .RData

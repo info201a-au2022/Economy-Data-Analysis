@@ -4,6 +4,15 @@ library(ggplot2)
 library(shinythemes)
 library(DT)
 
+credit_classification <- read.csv("data/credit_class.csv", stringsAsFactors = FALSE)
+house_price <- read.csv("data/house_prices.csv", stringsAsFactors = FALSE)
+avg_income <- read.csv("data/avg_income_yearly.csv")
+income_df <- read.csv("data/income_race.csv", stringsAsFactors = FALSE)
+poverty_percent <- read.csv("data/percent_poverty.csv", stringsAsFactors =  FALSE)
+
+
+
+
 
 
 intro_panel <- tabPanel(
@@ -57,8 +66,6 @@ interaction_one <- tabPanel(
       mainPanel(
         plotOutput("graph_1"),
         DT::dataTableOutput("mytable")
-        
-        
       )
     )
 )
@@ -67,12 +74,39 @@ interaction_one <- tabPanel(
 
 interaction_two <- tabPanel(
   "Graph 2",
-  titlePanel("Title")
+  titlePanel("")
 )
+
 
 interaction_three <- tabPanel(
   "Graph 3",
-  titlePanel("Title")
+  titlePanel("Title"),
+    sidebarLayout(
+      sidebarPanel(
+        helpText("Choose the following variables to show on the graph"),
+        radioButtons(
+          inputId = "graph3_input",
+          label = "Choose variables",
+          choices = list(
+            "Ages Under 18" = "under_18",
+            "Ages 16 to 64" = "x18_to_64",
+            "Ages 65 and above" = "x65_and_older"
+          ),
+          selected = "under_18"
+        ),
+      ),
+      mainPanel(
+        plotOutput("graph_3"),
+        h5("Central Focus"),
+        hr(style = "border-top: 1px solid #000000;"),
+        p("This data set showcases the differing categories in age in relationship with poverty. Dating from the 1970’s, there appears to be a 
+        decline in poverty for those 65 years old and higher. However, for the other groups, there are higher vulnerability to poverty. Those 
+        under 18 have the highest chances with 22% in poverty during the early 1990’s.  And similar numbers in the early 1980’s and 2010. Those 
+        in the working age population in the ages of 16 to 64 also has history with poverty. Unlike those under 18, it has lower percentages, 
+        the highest being 14% in the 2010."),
+        p("A pattern found in all three graphs are higher spikes during the years of 1980, 1990, and 2010.")
+      )
+  )
 )
 
 #conclusion

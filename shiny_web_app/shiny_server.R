@@ -16,10 +16,12 @@ library(quantmod)
 library(plotly)
 
 
+
 credit_classification <- read.csv("data/credit_class.csv", stringsAsFactors = FALSE)
 house_price <- read.csv("data/house_prices.csv", stringsAsFactors = FALSE)
 avg_income <- read.csv("data/avg_income_yearly.csv")
 income_df <- read.csv("data/income_race.csv", stringsAsFactors = FALSE)
+poverty_percent <- read.csv("data/percent_poverty.csv", stringsAsFactors =  FALSE)
 
 rename_house <- house_price %>% 
   rename("Average_price_income" = "AverageSalesPricesOfHousesInTheUS") %>% 
@@ -30,7 +32,7 @@ rename_income <- avg_income %>%
   rename("Average_income" = "AverageIndividualIncome") %>% 
   mutate(Average_price1 = str_sub(Average_income, 2, 7)) %>% 
   mutate(Average_price_house = as.numeric(str_remove_all(Average_price1, "[.,]")))
-  
+
 house_and_annual <- left_join(rename_house, rename_income, by = "Year")
 
 house_and_annual_v1 <- house_and_annual %>% 
@@ -45,6 +47,13 @@ percent_change_df <- house_and_annual %>%
   select(Year, Percent_change_income, Percent_change_house) %>% 
   group_by(Year)
 percent_change_df = percent_change_df[-1,]
+
+poverty_percent <- poverty_percent %>% 
+  mutate(under_18 = as.numeric(str_remove_all(Under.18, "[%]"))) %>%
+  mutate(x18_to_64 = as.numeric(str_remove_all(X18.to.64, "[%]"))) %>% 
+  mutate(x65_and_older = as.numeric(str_remove_all(X65.and.older, "[%]"))) %>% 
+  select(Year,under_18,x18_to_64,x65_and_older) %>% 
+  group_by(Year)
 
 # Define server logic required to draw a histogram
 shinyServer <- function (input, output){
@@ -61,18 +70,29 @@ shinyServer <- function (input, output){
       labs(
         x = "Year",
         y = "Average Price",
-        title = "House Prices in Comparison with average Annueal Income"
+        title = "House Prices in Comparison with average Annual Income"
       ) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-    ggplotly(graph1_plot)
     graph1_plot
   })
+
     
-    
-    output$mytable <- DT::renderDataTable({
-      percent_change_df
-    })
+  output$mytable <- DT::renderDataTable({
+    percent_change_df
+  })
  
+ output$graph_3 <- renderPlot({
+   graph3_plot <- ggplot(data = poverty_percent) +
+     geom_line(mapping = aes_string (
+       x = poverty_percent$Year,
+       y = input$graph3_input
+     ), color = "purple", alpha = .3) +
+     labs(
+       x = "Year",
+       y = "Percentage in Poverty",
+       title = "Percent in poverty by age (1975 - 2020)"
+     ) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+   graph3_plot
+ })
 }
 
- 
 
