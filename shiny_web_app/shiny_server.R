@@ -13,6 +13,7 @@ library(dplyr)
 library(tidyverse)
 library(ggplot2)
 library(quantmod)
+library(plotly)
 
 
 credit_classification <- read.csv("../data/credit_class.csv", stringsAsFactors = FALSE)
@@ -31,17 +32,26 @@ rename_income <- avg_income %>%
   
 house_and_annual <- left_join(rename_house, rename_income, by = "Year")
 
+house_and_annual_v1 <- house_and_annual %>% 
+  select(Year, Average_price_income, Average_price_house) %>% 
+  group_by(Year)
+
+percent_change_df <- house_and_annual %>% 
+  rename("Percent_change_income" = "PercentChange.x") %>% 
+  rename("Percent_change_house" = "PercentChange.y") %>% 
+  select(Year, Percent_change_income, Percent_change_house) %>% 
+  group_by(Year)
+percent_change_df = percent_change_df[-1,]
+
 # Define server logic required to draw a histogram
 shinyServer <- function (input, output){
   
-
-  
 # Render Graph 1
-
+  
   output$graph_1 <- renderPlot({
-    house_plot <- ggplot(data = house_and_annual) +
-      geom_point(mapping = aes_string ( 
-          x = house_and_annual$Year,
+    graph1_plot <- ggplot(data = house_and_annual_v1) +
+      geom_point(mapping = aes_string (
+          x = house_and_annual_v1$Year,
           y = input$y_input
       ), color = "red", alpha = .3) +
       scale_y_continuous(labels = scales::comma) +  
@@ -50,9 +60,15 @@ shinyServer <- function (input, output){
         y = "Average Price",
         title = "House Prices in Comparison with average Annueal Income"
       ) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-    house_plot
+    ggplotly(graph1_plot)
+    graph1_plot
   })
-  
+    
+    
+    output$mytable <- DT::renderDataTable({
+      percent_change_df
+    })
+ 
 }
 
  

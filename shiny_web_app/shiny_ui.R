@@ -10,6 +10,7 @@
 library(shiny)
 library(ggplot2)
 library(shinythemes)
+library(DT)
 
 
 
@@ -32,6 +33,8 @@ intro_panel <- tabPanel(
 # Graph 1
 select_values <- c(colnames(house_and_annual[2]),colnames(house_and_annual[8]))
 date_range <- house_and_annual$Year
+select_values_percent <- c(colnames(percent_change_df[2]),colnames(percent_change_df[3]))
+
 
 interaction_one <- tabPanel(
   "Graph 1",
@@ -40,28 +43,34 @@ interaction_one <- tabPanel(
       sidebarPanel(
         helpText("Choose the following variables to show on the graph"),
         selectInput(
-          "y_input",
+          inputId = "y_input",
           label = "Choose Graph",
-          choices = select_values,
-          selected = colnames(house_and_annual[2])
+          choices = list(
+            "Average Annual Income" = "Average_price_house",
+            "Average House Cost" = "Average_price_income"
+          ),
+          selected = "Average_price_house"
         ),
-        sliderInput(
-          "date_input",
-          label = "Choose Year",
-          min = min(house_and_annual$Year),
-          max = max(house_and_annual$Year),
-          value = c(1970,2000),
-          sep = ""
-        )
+      h5("Central Focus"),
+      p("This graph illustrates the increasing prices in both annual income and house market beginning from 1962 to 2021. The annual income 
+        graph shows a evenly increment increase throughout the years. However, in 2020 there is a spike of increase disproportionate to the 
+        other years. This year is followed by the influence of Covid-19. With shortage of labor, minimum wages have increased, which in 
+        return also increases the average annual income."),
+      p("Followed with average cost of the house market, the graph illustrates less of a linear growth. There is more cases of sudden spikes 
+      and fallouts. One of which is the 2007 house market crash showcasing the effects of increase home prices as well as the loose lending 
+      practices towards home buyers. Another interesting note is the all time high in 2021 that still has influence to todays house market. "),
+      p("The table to the right shows the changes of percentages of both annual income and the house market. It is organize by the year and 
+      followed by the change of percentage to the year prior. ")
       ),
       mainPanel(
         plotOutput("graph_1"),
-        plotOutput("plot")
+        DT::dataTableOutput("mytable")
+        
+        
       )
     )
 )
 
-?toJSON
 
 
 interaction_two <- tabPanel(
