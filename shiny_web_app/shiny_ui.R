@@ -1,11 +1,3 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
 
 library(shiny)
 library(ggplot2)
@@ -46,8 +38,8 @@ interaction_one <- tabPanel(
           inputId = "y_input",
           label = "Choose Graph",
           choices = list(
-            "Average Annual Income" = "Average_price_house",
-            "Average House Cost" = "Average_price_income"
+            "Average House Cost" = "Average_house_price",
+            "Average Annual Income" = "Average_annual_income"
           ),
           selected = "Average_price_house"
         ),
@@ -167,7 +159,6 @@ report_panel <- tabPanel(
       p("3 )Among the unemployed, the number of permanent job losers decreased by 173,000 to 1.2 million in September"),
       p("4) The number of discouraged workers, a subset of the marginally attached who believed that no jobs were available for them, increased 
         by 119,000 to 485,000 in September."),
-      img(src="/www/DatasetTable.png", height = 250, width = 500, align = "center"),
       p("The pandemic impacted everyone but was not distributed evenly to all social classes. In fact, it remained more prevalent in groups 
         such as Blacks, Latinos, and other groups of minority. This is the result due to structual racism shifting the most economic hardships 
         to those of color."),
@@ -203,7 +194,6 @@ report_panel <- tabPanel(
       p("The dataset details a lot of information related to finance specifically credit scores. It gives data related to credit score, SSN, occupation, individual 
         base salaries and number of bank accounts a person has. All of this data is helpful to our project because it helps us see how credit scores differ based on 
         socioeconomic status and one way to determine that is through knowing occupation."),
-      img(src="../docs/images/DatasetTable.png", height = 250, width = 500, align = "center"),
       p("The data was collected by Rohan Paris, a software developer at Cognizant. The dataset was updated about 4 months ago. The purpose of the set was to identify 
         people’s credit scores with only occupation and minimal bank information given. It was funded through Kaggle. The people/organizations likely to benefit from 
         the data would be Kaggle because there would be more interactions with their site and also people who generally want to learn more about the development of 

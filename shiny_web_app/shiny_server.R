@@ -16,9 +16,10 @@ library(quantmod)
 library(plotly)
 
 
-credit_classification <- read.csv("../data/credit_class.csv", stringsAsFactors = FALSE)
-house_price <- read.csv("../data/house_prices.csv", stringsAsFactors = FALSE)
-avg_income <- read.csv("../data/avg_income_yearly.csv")
+credit_classification <- read.csv("data/credit_class.csv", stringsAsFactors = FALSE)
+house_price <- read.csv("data/house_prices.csv", stringsAsFactors = FALSE)
+avg_income <- read.csv("data/avg_income_yearly.csv")
+income_df <- read.csv("data/income_race.csv", stringsAsFactors = FALSE)
 
 rename_house <- house_price %>% 
   rename("Average_price_income" = "AverageSalesPricesOfHousesInTheUS") %>% 
@@ -33,12 +34,14 @@ rename_income <- avg_income %>%
 house_and_annual <- left_join(rename_house, rename_income, by = "Year")
 
 house_and_annual_v1 <- house_and_annual %>% 
-  select(Year, Average_price_income, Average_price_house) %>% 
+  select(Year, Average_price_income, Average_price_house) %>%
+  rename("Average_house_price" = "Average_price_income") %>% 
+  rename("Average_annual_income" = "Average_price_house") %>% 
   group_by(Year)
 
 percent_change_df <- house_and_annual %>% 
-  rename("Percent_change_income" = "PercentChange.x") %>% 
-  rename("Percent_change_house" = "PercentChange.y") %>% 
+  rename("Percent_change_house" = "PercentChange.x") %>% 
+  rename("Percent_change_income" = "PercentChange.y") %>% 
   select(Year, Percent_change_income, Percent_change_house) %>% 
   group_by(Year)
 percent_change_df = percent_change_df[-1,]
