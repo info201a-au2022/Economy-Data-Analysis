@@ -78,10 +78,24 @@ interaction_one <- tabPanel(
 
 interaction_two <- tabPanel(
   "Graph 2",
-  titlePanel("")
+  titlePanel(strong("Age vs. Income")),
+  sidebarLayout(
+    sidebarPanel(
+      helpText("Choose the following variables to show on the graph"),
+      selectInput(
+        inputId = "graph2_input",
+        label = "Choose Occupation",
+        choices = c(unique(credit_classification$Occupation["Entity"]))),
+    ),
+        selected = "Doctor"
+  ),
+    h5("Central Focus"),
+    p("This graph illustrates the ages and annual incomes of Americans. The annual income increases as 
+      people age, however increase in income is not only affected by age but also the occupation of people. High earning jobs such as doctor, lawyer, 
+      engineer tend to have higher incomes each year. This graph showcases that annual income can be altered by changes in career. ")
+  
 )
-
-
+  
 interaction_three <- tabPanel(
   "Graph 3",
   titlePanel("Title"),
@@ -271,7 +285,7 @@ report_panel <- tabPanel(
       
       h2(strong("Findings")),
       hr(style = "border-top: 1px solid #000000;"),
-      p(""),
+      p("While researching for our project we found many instances of economic blowbacks."),
       
       br(),
       br(),

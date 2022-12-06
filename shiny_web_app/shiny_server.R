@@ -14,6 +14,8 @@ library(tidyverse)
 library(ggplot2)
 library(quantmod)
 library(plotly)
+install.packages("ggplotlyExtra")
+library(ggplotly)
 
 
 credit_classification <- read.csv("data/credit_class.csv", stringsAsFactors = FALSE)
@@ -80,12 +82,19 @@ shinyServer <- function (input, output){
   })
   
 output$graph_2 <- renderPlot({
-    graph2_plot <- ggplot(data = credit_classification) +
-      geom_bar(aes(x= credit_classification$Age, 
-                   y= credit_classification$Num_of_Loan,
-                   stat="identity")) +
-      labs(x= "Age", y = "Number of Bank Loans")
-    graph2_plot
+  graph2_plot <- ggplot(data = credit_classification) +
+    geom_col(mapping = aes(
+      x = Annual_Income$Age,
+      y = input$graph2_input
+    ), color = "blue") +
+    xlim(0,100)+
+    scale_y_continuous(labels = scales::comma) +  
+    labs(
+      x = "Age",
+      y = "Annual Income",
+      title = "Annual Income in Relation to Age"
+    ) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  graph2_plot
 })
 
  output$graph_3 <- renderPlot({
@@ -93,7 +102,7 @@ output$graph_2 <- renderPlot({
      geom_line(mapping = aes_string (
        x = poverty_percent_f$Year,
        y = input$graph3_input
-     ), color = "purple", alpha = .3) +
+     ), color = "purple") +
      labs(
        x = "Year",
        y = "Percentage in Poverty",
