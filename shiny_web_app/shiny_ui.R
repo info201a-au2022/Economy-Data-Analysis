@@ -156,7 +156,21 @@ sumtakeaway_panel <- tabPanel(
       p("Amy Oguejiofor || amyo6@uw.edu"),
       p("Nuria Abas Ibrahim || nuriai2@uw.edu")
     ),
-    mainPanel()
+    mainPanel(
+      p("During the development of this project, we have learned a few things along with the utility of R. 
+        The first takeaway would be the relationship between annual income and housing costs. It’s a predicament as housing have become fairly expensive. It brings emphasis 
+        as annual income does not fit the needs in order for people to buy houses. A takeaway is that annual income have increased by 29% since the 1960’s, and the 
+        housing have increased by 121% which is incomaprible to one another. Another factor would be the stability of the housing market as it bgeigns to spike up 
+        and down in recent years. And annual income is a icremently increasing slowly."),
+      p("Another takeaway takes place in the Poverty Rates by Rate in 2020. It showed where groups are more confused to poverty by state and each race had a characteristic 
+        of their own. Hispanics had hgiher rates of poverty in the Southern states. Blacks were more common in the south as well but had an influence in Northern and 
+        midwestern cities. This may be due to the great migration taken in the 1910-1940’s as they were trying to escape racial violence and pursue more oppertunities. "),
+      p("And lastly, the last takeaway resides in age in comparison to age. It shows that ages under 18 were more exposed to poverty as they had 22% of their group considered 
+        part of poverty. However, those of ages 65 and up have decreased in poverty rates beginning at 15.5% in 1975 to approximately 5% in 2020. However, in groups under 18 
+        and the working ages (16-64) had spikes in 1980, 1990, and one in 2010. After research we have discovered that in 1980 was due to decline wages due to inflation. The 
+        cause for 1990 was because of the elimination of low skill manufactory jobs and popularity of employment to suburbs rather than central cities. And for 2010, it was 
+        ecause of the continued alck of jobs that influenced the rate of poverty. ")
+    )
   )
 )
 
