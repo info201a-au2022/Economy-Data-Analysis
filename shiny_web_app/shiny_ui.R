@@ -86,6 +86,22 @@ interaction_two <- tabPanel(
       selectInput(
         inputId = "graph2_input",
         label = "Choose Occupation",
+<<<<<<< HEAD
+        choices = c(unique(credit_classification$Occupation)),
+        selected = credit_classification$Occupation["Teacher"]
+        ),
+  ),
+  mainPanel(
+    plotOutput("graph_2"),
+    h5("Central Focus"),
+    p("This graph illustrates the ages and annual incomes of Americans. The annual income increases as 
+      people age, however increase in income is not only affected by age but also the occupation of people. High earning jobs such as doctor, lawyer, 
+      engineer tend to have higher incomes each year. This graph showcases that annual income can be altered by changes in career. ")
+  )
+  )
+)
+  
+=======
         choices = unique(age_job_income$Occupation)),
       # "to do"
         selected = "Accountant" 
@@ -108,6 +124,7 @@ interaction_two <- tabPanel(
 
     
     
+>>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
 interaction_three <- tabPanel(
   "Poverty",
   titlePanel("Age vs. Percentage in Poverty"),
@@ -120,9 +137,9 @@ interaction_three <- tabPanel(
           choices = list(
             "Ages Under 18" = "under_18",
             "Ages 16 to 64" = "x18_to_64",
-            "Ages 65 and above" = "x65_and_older"
-          ),
+            "Ages 65 and above" = "x65_and_older"),
           selected = "under_18"
+          
         ),
       ),
       
