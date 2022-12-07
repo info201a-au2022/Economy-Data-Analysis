@@ -2,6 +2,7 @@
 library(shiny)
 library(ggplot2)
 library(shinythemes)
+library(tidyverse)
 library(DT)
 
 
@@ -42,7 +43,7 @@ select_values_percent <- c(colnames(percent_change_df[2]),colnames(percent_chang
 
 
 interaction_one <- tabPanel(
-  "Graph 1",
+  "Annual Income and Housing Costs",
   titlePanel(strong("Average Income vs. Average House Price (1962-2021)")),
     sidebarLayout(
       sidebarPanel(
@@ -78,7 +79,7 @@ interaction_one <- tabPanel(
 
 interaction_two <- tabPanel(
   "Graph 2",
-  titlePanel(strong("Age vs. Income")),
+  titlePanel(strong("Title")),
   sidebarLayout(
     sidebarPanel(
       helpText("Choose the following occupations below"),
@@ -108,8 +109,8 @@ interaction_two <- tabPanel(
     
     
 interaction_three <- tabPanel(
-  "Graph 3",
-  titlePanel("Title"),
+  "Poverty",
+  titlePanel("Age vs. Percentage in Poverty"),
     sidebarLayout(
       sidebarPanel(
         helpText("Choose the following variables to show on the graph"),
@@ -140,8 +141,8 @@ interaction_three <- tabPanel(
 )
 
 #conclusion
-conclusion_panel <- tabPanel(
-  "Conclusion",
+sumtakeaway_panel <- tabPanel(
+  "Summary Takeaways",
   titlePanel("Summary Takeaways"),
   sidebarLayout(
     position = "right",
@@ -169,10 +170,13 @@ report_panel <- tabPanel(
       br(),
       br(),
       h4(strong("Refrences")),
-      p("Tracking the COVID-19 Economy’s Effects on Food, Housing, and Employment Hardships. (2022, February 10). Cbpp. 
-      https://www.cbpp.org/research/poverty-and-inequality/tracking-the-covid-19-economys-effects-on-food-housing-and#:~:text=The%20COVID%2D19%20pandemic%20and,unemployment%20remained%20high%20throughout%202020."),
+      p("Tracking the COVID-19 Economy’s Effects on Food, Housing, and Employment Hardships. (2022, 
+      February 10). Cbpp.https://www.cbpp.org/research/poverty-and-inequality/tracking-the-covid-19-
+      economys-effects-on-food-housing-and#:~:text=The%20COVID%2D19%20pandemic%20and,unemployment%20
+      remained%20high%20throughout%202020."),
       p("https://www.bls.gov/news.release/pdf/empsit.pdf"),
-      p("https://www.bls.gov/opub/mlr/2020/article/the-impact-of-the-covid-19-pandemic-on-food-price-indexes-and-data-collection.htm"),
+      p("https://www.bls.gov/opub/mlr/2020/article/the-impact-of-the-covid-19-pandemic-on-food-price-
+      indexes-and-data-collection.htm"),
       p("https://www.thecut.com/2022/10/shein-is-treating-workers-even-worse-than-you-thought.html")
     ),
       
@@ -297,15 +301,18 @@ report_panel <- tabPanel(
       
       h2(strong("Findings")),
       hr(style = "border-top: 1px solid #000000;"),
-      p(strong("How has the the workforce in groups of minority been impacted?")),
+      p(strong("1. How has the the workforce in groups of minority been impacted?")),
         p("We found that..."),
-      p(strong("What are the current trends/culture of each standing social classes?")),
-      p("We found one notable trend of younger and middle aged Americans 
-      being more susceptible to poverty. Our research indicated that people under 
-        18 have the highest chance of being in poverty at 22%. This can be seen in 
-        the early 1980s,1990s and 2010s. So ultimately we found that those who belong to 
-        low socioeconomic statuses tend to trend younger in age."),
-      p(strong("How did Covid-19 affected finance in the long term?")),
+      p(strong("2. What are the current trends/culture of each standing social classes?")),
+      p("We found one notable trend of younger and middle aged Americans being more susceptible to poverty. 
+      Our research indicated that people under 18 have the highest chance of being in poverty - the number
+      being 22%. Under 18 year olds reached that high percentage in poverty in three different eras -  the 
+      early 1980s,1990s and 2010s. The lowest percentage of poverty depicted in our data visualization was 
+      just under 5% for the ages of 18 to 64, the middle aged demographic. So ultimately we found that those 
+      who belong to low socioeconomic statuses tend to be younger in age, which supports the ideas found in 
+      our data that individuals who are not solidified in a career earn lower amounts of money and our therefore
+      less likely to have higher socioeconomic statuses."),
+      p(strong("3. How did Covid-19 affected finance in the long term?")),
       p("We found that COVID-19 did impact our economy in a way. The pandemic caused a 
         recession which led to flunctuations in gas prices. During our research we 
         saw a decline in at the heights of the pandemic. This is due to the lack of transport needed during 
@@ -345,12 +352,12 @@ report_panel <- tabPanel(
 
 
 shinyUI <- navbarPage(
-  h4("Navigation"),
+  h4("The US Economy", align = "center"),
   theme = shinytheme("yeti"),
   intro_panel,
   interaction_one,
   interaction_two,
   interaction_three,
-  conclusion_panel,
+  sumtakeaway_panel,
   report_panel
 )
