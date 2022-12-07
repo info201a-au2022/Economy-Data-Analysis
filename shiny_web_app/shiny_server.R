@@ -14,12 +14,9 @@ library(tidyverse)
 library(ggplot2)
 library(quantmod)
 library(plotly)
-<<<<<<< HEAD
-library(ggplotly)
-=======
 library(shinythemes)
+library(usmap)
 
->>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
 
 
 credit_classification <- read.csv("data/credit_class.csv", stringsAsFactors = FALSE)
@@ -27,12 +24,9 @@ house_price <- read.csv("data/house_prices.csv", stringsAsFactors = FALSE)
 avg_income <- read.csv("data/avg_income_yearly.csv")
 income_df <- read.csv("data/income_race.csv", stringsAsFactors = FALSE)
 poverty_percent <- read.csv("data/percent_poverty.csv", stringsAsFactors =  FALSE)
-<<<<<<< HEAD
-map_poverty <- read.csv("data/map_poverty_areas - raw_data.csv", stringsAsFactors = FALSE)
+map_poverty <- read.csv("data/map_poverty_areas - raw_data - map_poverty_areas - raw_data.csv", stringsAsFactors = FALSE)
 
-=======
 occupation_stuff <- credit_classification$Occupation
->>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
 rename_house <- house_price %>% 
   rename("Average_price_income" = "AverageSalesPricesOfHousesInTheUS") %>% 
   rename("Year" = "FirstQuarterYearly") %>% 
@@ -65,30 +59,18 @@ poverty_percent_f <- poverty_percent %>%
   select(Year,under_18,x18_to_64,x65_and_older) %>% 
   group_by(Year)
 
-<<<<<<< HEAD
-graph2_dataframe <- credit_classification %>% 
-  select(Annual_Income, Occupation) %>% 
-  group_by(Occupation)
-
-graph2_dataframev2 <- distinct(graph2_dataframe)
-
-graph2_dataframev2 <- graph2_dataframe %>% 
-  group_by(Occupation)
-
-graph2_dataframev2 <- distinct(graph2_dataframe)
-
 map_povertyv2 <- map_poverty %>% 
-  select(Location, White, Black, Hispanic, Asian.Native.Hawaiian.and.Pacific.Islander, American.Indian.Alaska.Native) %>% 
-  group_by(Location)
+  select(Location, White, Black, Hispanic, Asian.Native.Hawaiian.and.Pacific.Islander, American.Indian.Alaska.Native) %>%
+  mutate(White = as.numeric(str_remove_all(White, "[%]"))) %>% 
+  mutate(Black = as.numeric(str_remove_all(Black, "[%]"))) %>% 
+  mutate(Hispanic = as.numeric(str_remove_all(Hispanic, "[%]"))) %>% 
+  mutate(Asian.Native.Hawaiian.and.Pacific.Islander = as.numeric(str_remove_all(Asian.Native.Hawaiian.and.Pacific.Islander, "[%]"))) %>% 
+  mutate(American.Indian.Alaska.Native = as.numeric(str_remove_all(American.Indian.Alaska.Native, "[%]"))) %>% 
+  rename("state" = "Location") %>% 
+  group_by("state")
 
+map_povertyv2 <- map_povertyv2[-1,]
 
-
-=======
-age_job_income <- credit_classification %>% 
-  select(Age, Annual_Income, Occupation) %>%
-  group_by(Age)
-View(age_job_income)
->>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
 
 # Define server logic required to draw a histogram
 shinyServer <- function (input, output){
@@ -116,26 +98,18 @@ shinyServer <- function (input, output){
   })
   
 #################################
-output$graph_2 <- renderPlot({
-<<<<<<< HEAD
-  graph2_plot <- ggplot(data = graph2_dataframe) +
-    geom_col(mapping = aes(
-      x = graph2_dataframe$Annual_Income,
-=======
-  graph2_plot <- ggplot(data = age_job_income) +
-    geom_col(mapping = aes(
-      x = age_job_income$Age,
->>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
-      y = input$graph2_input
-    ), color = "blue") +
-    xlim(0,100)+
-    labs(
-      x = "Age",
-      y = "Annual Income",
-      title = "Annual Income in Relation to Age"
-    ) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-  graph2_plot
-})
+  output$graph_2 <- renderPlot ({
+    graph2_map <- plot_usmap("states", data = map_povertyv2, values = input$graph2_input, color = "black") +
+      scale_fill_continuous(
+        high = "red",
+        low = "yellow",
+        name = "Poverty Rates", 
+        label = scales::comma) +
+      theme(legend.position = "right")
+    graph2_map
+    
+  })
+    
 #################################
  output$graph_3 <- renderPlot({
    graph3_plot <- ggplot(data = poverty_percent_f) +

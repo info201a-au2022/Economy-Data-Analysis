@@ -28,7 +28,11 @@ intro_panel <- tabPanel(
     market. As well as show the percentage of change prior to the each of 
       the income/cost"),
       hr(style = "border-top: 1px solid #000000;"),
-      p("Which groups are more susceptible to poverty as well as identifying reasonings for the occurance")
+      p("Which groups are more susceptible to poverty as well as identifying reasonings for the occurance"),
+      hr(style = "border-top: 1px solid #000000;"),
+      p("Mapping poverty rates in the US to show poverty in correlation with races. Shows common patterns and characteristics in where
+        ceterain poverty patterns occur to marginalized  groups")
+      
     ) 
   )
 )
@@ -74,56 +78,38 @@ interaction_one <- tabPanel(
     )
 )
 
-
-
 interaction_two <- tabPanel(
   "Graph 2",
-  titlePanel(strong("Age vs. Income")),
+  titlePanel("Poverty Rates by Races (2020"),
   sidebarLayout(
     sidebarPanel(
-      helpText("Choose the following occupations below"),
+      helpText("Shows areas where poverty are higher corresponding to the state"),
       selectInput(
         inputId = "graph2_input",
-        label = "Choose Occupation",
-<<<<<<< HEAD
-        choices = c(unique(credit_classification$Occupation)),
-        selected = credit_classification$Occupation["Teacher"]
-        ),
-  ),
-  mainPanel(
-    plotOutput("graph_2"),
-    h5("Central Focus"),
-    p("This graph illustrates the ages and annual incomes of Americans. The annual income increases as 
-      people age, however increase in income is not only affected by age but also the occupation of people. High earning jobs such as doctor, lawyer, 
-      engineer tend to have higher incomes each year. This graph showcases that annual income can be altered by changes in career. ")
-  )
+        label = "Choose varaible",
+        choices = list(
+          "Percentage of Whites in Poverty" = colnames(map_povertyv2[2]),
+          "Percentage of Blacks in Poverty" = "Black",
+          "Percentage of Hispanics in Poverty" = "Hispanic",
+          "Percentage of Asian, Native, Hawaiian, and Pacific Islander in Poverty" = "Asian.Native.Hawaiian.and.Pacific.Islander",
+          "Percentage of American Indian and Alaska Natives in Poverty" = "American.Indian.Alaska.Native"),
+        selected = "White"
+      ),
+      h5("Central Focus"),
+      p("The map above shows the areas where poverty is highest according to the race. One interesting point is that the catagory white 
+        is the only option where it shows the information entirely for the US map. Other races lack information as some states do not 
+        have any records of poverty. This data serves importance as it can potentially show marginalized areas where poverty inhibits. 
+        As there are common characteristics that may differ from other groups in eccesne of location. As well as show exclusiverness as 
+        some areas do not have information on poverty. ")
+    ),
+    mainPanel(
+      plotOutput("graph_2")
+    )
   )
 )
-  
-=======
-        choices = unique(age_job_income$Occupation)),
-      # "to do"
-        selected = "Accountant" 
-      ),
-  mainPanel(
-    plotOutput("graph_2"),
-    h5("Central Focus"),
-    hr(style = "border-top: 1px solid #000000;"),
-    p("This graph illustrates the ages and annual incomes of Americans. 
-      The annual income increases as people age, however increase in income is not 
-      only affected by age but also the occupation of people. High earning jobs such as 
-      doctor, lawyer, engineer tend to have higher incomes each year. 
-      This graph showcases that annual income can be altered by changes in career."),
-    p("The graph also allows more insight into socioeconomic statuses of Americans. Those with higher 
-    annualincomes have higher socioeconomic statuses"),
-   )
-  )
- )
 
 
-    
-    
->>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
+
 interaction_three <- tabPanel(
   "Graph 3",
   titlePanel("Title"),
