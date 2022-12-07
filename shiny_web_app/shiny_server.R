@@ -14,7 +14,6 @@ library(tidyverse)
 library(ggplot2)
 library(quantmod)
 library(plotly)
-install.packages("ggplotlyExtra")
 library(ggplotly)
 
 
@@ -23,6 +22,7 @@ house_price <- read.csv("data/house_prices.csv", stringsAsFactors = FALSE)
 avg_income <- read.csv("data/avg_income_yearly.csv")
 income_df <- read.csv("data/income_race.csv", stringsAsFactors = FALSE)
 poverty_percent <- read.csv("data/percent_poverty.csv", stringsAsFactors =  FALSE)
+map_poverty <- read.csv("data/map_poverty_areas - raw_data.csv", stringsAsFactors = FALSE)
 
 rename_house <- house_price %>% 
   rename("Average_price_income" = "AverageSalesPricesOfHousesInTheUS") %>% 
@@ -56,6 +56,24 @@ poverty_percent_f <- poverty_percent %>%
   select(Year,under_18,x18_to_64,x65_and_older) %>% 
   group_by(Year)
 
+graph2_dataframe <- credit_classification %>% 
+  select(Annual_Income, Occupation) %>% 
+  group_by(Occupation)
+
+graph2_dataframev2 <- distinct(graph2_dataframe)
+
+graph2_dataframev2 <- graph2_dataframe %>% 
+  group_by(Occupation)
+
+graph2_dataframev2 <- distinct(graph2_dataframe)
+
+map_povertyv2 <- map_poverty %>% 
+  select(Location, White, Black, Hispanic, Asian.Native.Hawaiian.and.Pacific.Islander, American.Indian.Alaska.Native) %>% 
+  group_by(Location)
+
+
+
+
 # Define server logic required to draw a histogram
 shinyServer <- function (input, output){
   
@@ -81,14 +99,14 @@ shinyServer <- function (input, output){
     percent_change_df
   })
   
+#################################
 output$graph_2 <- renderPlot({
-  graph2_plot <- ggplot(data = credit_classification) +
+  graph2_plot <- ggplot(data = graph2_dataframe) +
     geom_col(mapping = aes(
-      x = Annual_Income$Age,
+      x = graph2_dataframe$Annual_Income,
       y = input$graph2_input
     ), color = "blue") +
     xlim(0,100)+
-    scale_y_continuous(labels = scales::comma) +  
     labs(
       x = "Age",
       y = "Annual Income",
@@ -96,7 +114,7 @@ output$graph_2 <- renderPlot({
     ) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
   graph2_plot
 })
-
+#################################
  output$graph_3 <- renderPlot({
    graph3_plot <- ggplot(data = poverty_percent_f) +
      geom_line(mapping = aes_string (
