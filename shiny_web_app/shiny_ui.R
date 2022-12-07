@@ -81,21 +81,32 @@ interaction_two <- tabPanel(
   titlePanel(strong("Age vs. Income")),
   sidebarLayout(
     sidebarPanel(
-      helpText("Choose the following variables to show on the graph"),
+      helpText("Choose the following occupations below"),
       selectInput(
         inputId = "graph2_input",
         label = "Choose Occupation",
-        choices = c(unique(credit_classification$Occupation["Entity"]))),
-    ),
-        selected = "Doctor"
-  ),
+        choices = unique(age_job_income$Occupation)),
+      # "to do"
+        selected = "Accountant" 
+      ),
+  mainPanel(
+    plotOutput("graph_2"),
     h5("Central Focus"),
-    p("This graph illustrates the ages and annual incomes of Americans. The annual income increases as 
-      people age, however increase in income is not only affected by age but also the occupation of people. High earning jobs such as doctor, lawyer, 
-      engineer tend to have higher incomes each year. This graph showcases that annual income can be altered by changes in career. ")
-  
-)
-  
+    hr(style = "border-top: 1px solid #000000;"),
+    p("This graph illustrates the ages and annual incomes of Americans. 
+      The annual income increases as people age, however increase in income is not 
+      only affected by age but also the occupation of people. High earning jobs such as 
+      doctor, lawyer, engineer tend to have higher incomes each year. 
+      This graph showcases that annual income can be altered by changes in career."),
+    p("The graph also allows more insight into socioeconomic statuses of Americans. Those with higher 
+    annualincomes have higher socioeconomic statuses"),
+   )
+  )
+ )
+
+
+    
+    
 interaction_three <- tabPanel(
   "Graph 3",
   titlePanel("Title"),
@@ -113,6 +124,7 @@ interaction_three <- tabPanel(
           selected = "under_18"
         ),
       ),
+      
       mainPanel(
         plotOutput("graph_3"),
         h5("Central Focus"),
@@ -285,21 +297,46 @@ report_panel <- tabPanel(
       
       h2(strong("Findings")),
       hr(style = "border-top: 1px solid #000000;"),
-      p("While researching for our project we found many instances of economic blowbacks."),
-      
+      p(strong("How has the the workforce in groups of minority been impacted?")),
+        p("We found that..."),
+      p(strong("What are the current trends/culture of each standing social classes?")),
+      p("We found one notable trend of younger and middle aged Americans 
+      being more susceptible to poverty. Our research indicated that people under 
+        18 have the highest chance of being in poverty at 22%. This can be seen in 
+        the early 1980s,1990s and 2010s. So ultimately we found that those who belong to 
+        low socioeconomic statuses tend to trend younger in age."),
+      p(strong("How did Covid-19 affected finance in the long term?")),
+      p("We found that COVID-19 did impact our economy in a way. The pandemic caused a 
+        recession which led to flunctuations in gas prices. During our research we 
+        saw a decline in at the heights of the pandemic. This is due to the lack of transport needed during 
+        COVID 19 lockdowns which in turn caused a lack of demand for gas and ultimately led to low prices. 
+        However, the falling demand from the pandemic era indicated the current extreme increase in gas prices 
+        across our country. The surge in prices we see today are the result of efforts to make up for the loss. 
+        This highlights the economic blowbacks of the pandemic and just how much it influenced our daily lives."),
       br(),
       br(),
       
       h2(strong("Discussion")),
       hr(style = "border-top: 1px solid #000000;"),
-      p(""),
+      p("One of the goals of our project was to help people better understand our economy and 
+        specifically look into how every day people are affected by our country's economic structure. 
+        In our findings, there were various socioeconomic implications analyzed. First we found trends in job in 
+        relation to income. Those with occupations in science, technology, engineering or mathematics tend to 
+        earn higher annual incomes than others in America. Lower earning occupations included: writers and teachers. 
+        For those many of them made thousands less of what STEM occupations made. This implied 
+        that economic status on a social level can be determined by career."),
       
       br(),
       br(),
       
       h2(strong("Conclusion")),
       hr(style = "border-top: 1px solid #000000;"),
-      p("")
+      p("Our economic system in the US is complex and has various factors constantly 
+        influencing its behaviors. Through our project we saw how our economy is affected on an 
+        individual level as well as extreme events, such as a global pandemic. By looking at our data
+        it was clear to understand that our housing market is deeply relational to the economy. We saw how the housing prices declined during the 2008 
+        recession and then immediately shot up in its prices.That increase ultimately plays into socioeconomics in our society through allowing individuals 
+        from higher statuses to build wealth through their property. All in all, this project shows how important the economy is to our lives and hopefully teaches more about its significance.")
       
       
     )

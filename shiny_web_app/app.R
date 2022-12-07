@@ -12,7 +12,7 @@ source("shiny_server.R")
 source("shiny_ui.R")
 
 
-#COnnection
+#Connection
 shinyApp(server = shinyServer, ui = shinyUI)
 
 
