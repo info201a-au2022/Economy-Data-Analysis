@@ -81,7 +81,7 @@ interaction_one <- tabPanel(
 
 interaction_two <- tabPanel(
   "Poverty by race",
-  titlePanel(strong("Poverty Rates by Races (2020")),
+  titlePanel(strong("Poverty Rates by Races (2020)")),
   sidebarLayout(
     sidebarPanel(
       helpText("Shows areas where poverty are higher corresponding to the state"),
