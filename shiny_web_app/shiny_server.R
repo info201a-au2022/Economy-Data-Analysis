@@ -14,7 +14,12 @@ library(tidyverse)
 library(ggplot2)
 library(quantmod)
 library(plotly)
+<<<<<<< HEAD
 library(ggplotly)
+=======
+library(shinythemes)
+
+>>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
 
 
 credit_classification <- read.csv("data/credit_class.csv", stringsAsFactors = FALSE)
@@ -22,8 +27,12 @@ house_price <- read.csv("data/house_prices.csv", stringsAsFactors = FALSE)
 avg_income <- read.csv("data/avg_income_yearly.csv")
 income_df <- read.csv("data/income_race.csv", stringsAsFactors = FALSE)
 poverty_percent <- read.csv("data/percent_poverty.csv", stringsAsFactors =  FALSE)
+<<<<<<< HEAD
 map_poverty <- read.csv("data/map_poverty_areas - raw_data.csv", stringsAsFactors = FALSE)
 
+=======
+occupation_stuff <- credit_classification$Occupation
+>>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
 rename_house <- house_price %>% 
   rename("Average_price_income" = "AverageSalesPricesOfHousesInTheUS") %>% 
   rename("Year" = "FirstQuarterYearly") %>% 
@@ -56,6 +65,7 @@ poverty_percent_f <- poverty_percent %>%
   select(Year,under_18,x18_to_64,x65_and_older) %>% 
   group_by(Year)
 
+<<<<<<< HEAD
 graph2_dataframe <- credit_classification %>% 
   select(Annual_Income, Occupation) %>% 
   group_by(Occupation)
@@ -73,6 +83,12 @@ map_povertyv2 <- map_poverty %>%
 
 
 
+=======
+age_job_income <- credit_classification %>% 
+  select(Age, Annual_Income, Occupation) %>%
+  group_by(Age)
+View(age_job_income)
+>>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
 
 # Define server logic required to draw a histogram
 shinyServer <- function (input, output){
@@ -101,9 +117,15 @@ shinyServer <- function (input, output){
   
 #################################
 output$graph_2 <- renderPlot({
+<<<<<<< HEAD
   graph2_plot <- ggplot(data = graph2_dataframe) +
     geom_col(mapping = aes(
       x = graph2_dataframe$Annual_Income,
+=======
+  graph2_plot <- ggplot(data = age_job_income) +
+    geom_col(mapping = aes(
+      x = age_job_income$Age,
+>>>>>>> 7cfffb4854c70940f6b96133ffbc2c1fe9e1db2b
       y = input$graph2_input
     ), color = "blue") +
     xlim(0,100)+
