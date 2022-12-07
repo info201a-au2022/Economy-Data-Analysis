@@ -80,11 +80,8 @@ interaction_one <- tabPanel(
 )
 
 interaction_two <- tabPanel(
-  "Graph 2",
-  titlePanel("Poverty Rates by Races (2020"),
-  titlePanel(strong("Title")),
-
-  titlePanel(strong("Title")),
+  "Poverty by race",
+  titlePanel(strong("Poverty Rates by Races (2020")),
   sidebarLayout(
     sidebarPanel(
       helpText("Shows areas where poverty are higher corresponding to the state"),
@@ -115,8 +112,8 @@ interaction_two <- tabPanel(
 
 
 interaction_three <- tabPanel(
-  "Poverty",
-  titlePanel("Age vs. Percentage in Poverty"),
+  "Poverty by Age",
+  titlePanel(strong("Age vs. Percentage in Poverty")),
     sidebarLayout(
       sidebarPanel(
         helpText("Choose the following variables to show on the graph"),
@@ -149,7 +146,7 @@ interaction_three <- tabPanel(
 #conclusion
 sumtakeaway_panel <- tabPanel(
   "Summary Takeaways",
-  titlePanel("Summary Takeaways"),
+  titlePanel(strong("Summary Takeaways")),
   sidebarLayout(
     position = "right",
     sidebarPanel(
