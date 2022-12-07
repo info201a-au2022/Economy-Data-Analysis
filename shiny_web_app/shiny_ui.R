@@ -82,7 +82,11 @@ interaction_one <- tabPanel(
 interaction_two <- tabPanel(
   "Graph 2",
 <<<<<<< HEAD
+<<<<<<< HEAD
   titlePanel("Poverty Rates by Races (2020"),
+=======
+  titlePanel(strong("Title")),
+>>>>>>> 1c893d13f26fe86cf6a7c06b8d4a6783e8d1130b
 =======
   titlePanel(strong("Title")),
 >>>>>>> 1c893d13f26fe86cf6a7c06b8d4a6783e8d1130b
