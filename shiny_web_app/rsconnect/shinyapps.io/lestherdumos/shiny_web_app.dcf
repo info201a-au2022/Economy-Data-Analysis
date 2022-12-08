@@ -5,9 +5,9 @@ account: lestherdumos
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7814369
-bundleId: 6592486
+bundleId: 6608936
 url: https://lestherdumos.shinyapps.io/shiny_web_app/
-when: 1670228447.80902
-lastSyncTime: 1670228447.80903
+when: 1670478550.31078
+lastSyncTime: 1670478550.31079
 asMultiple: FALSE
 asStatic: FALSE
