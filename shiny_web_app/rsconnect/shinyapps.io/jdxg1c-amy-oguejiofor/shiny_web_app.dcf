@@ -1,0 +1,13 @@
+name: shiny_web_app
+title:
+username:
+account: jdxg1c-amy-oguejiofor
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7844467
+bundleId: 6608702
+url: https://jdxg1c-amy-oguejiofor.shinyapps.io/shiny_web_app/
+when: 1670473465.0028
+lastSyncTime: 1670473465.00282
+asMultiple: FALSE
+asStatic: FALSE

@@ -11,11 +11,12 @@ intro_panel <- tabPanel(
   titlePanel(strong("US Economy: Socioeconomic & House Market")),
   hr(style = "border-top: 1px solid #000000;"),
   p("The US economy is considered one of the strongest economies in the world. In our mixed market economy, the US continuously exhibits strengths. 
-    However, during the COVID-19 pandemic our economy took several hits. Job growth slowed, overall wages were lost and ultimately the 
-    economy and the housing markets had been negatively affected. Due to the changing atmosphere of America's economic systems, 
-    we decided to focus our project on the highs and lows of the economy and housing market. Specifically, we want to answer which demographics have suffered 
-    under our economic systems, the assets these groups have, and what resources have helped alter the economic landscape . To help find those answers we plan to use data 
-    that gives information relating to the socioeconomic statuses of citizens. The information from the data includes occupation, annual incomes, salaries, bank loans, credit scores, and more."),
+    However during the COVID-19 pandemic, our economy took several hits. Job growth slowed, overall wages were lost and ultimately the 
+    economy and the housing markets have seen drastic downturns. Due to the changing atmosphere of America's economic systems, 
+    we decided to focus our project on the highs and lows of the economy, ultimately seeking to learn more about individual standing in our economy and housing market. 
+    Furthermore, we want to answer which demographics have suffered under our economic systems, the assets these groups have, and what resources have helped alter the economic landscape. 
+    To help find those answers we plan to use data that gives information relating to the socioeconomic statuses of citizens. The information from the data includes race, occupation, annual 
+    incomes, housing prices, US poverty rates, and more."),
   br(),
   h3(strong("Abstract")),
   sidebarLayout(
@@ -80,7 +81,7 @@ interaction_one <- tabPanel(
 )
 
 interaction_two <- tabPanel(
-  "Poverty by race",
+  "Poverty by Race",
   titlePanel(strong("Poverty Rates by Races (2020)")),
   sidebarLayout(
     sidebarPanel(
@@ -97,8 +98,8 @@ interaction_two <- tabPanel(
         selected = "White"
       ),
       h5("Central Focus"),
-      p("The map above shows the areas where poverty is highest according to the race. One interesting point is that the catagory white 
-        is the only option where it shows the information entirely for the US map. Other races lack information as some states do not 
+      p("The map above shows the areas where poverty is highest according to the race. One interesting point is that the catagory with White 
+      Americans is the only option where it shows the information entirely for the US map. Other races lack information as some states do not 
         have any records of poverty. This data serves importance as it can potentially show marginalized areas where poverty inhibits. 
         As there are common characteristics that may differ from other groups in eccesne of location. As well as show exclusiverness as 
         some areas do not have information on poverty. ")
@@ -163,7 +164,7 @@ sumtakeaway_panel <- tabPanel(
         housing have increased by 121% which is incomaprible to one another. Another factor would be the stability of the housing market as it bgeigns to spike up 
         and down in recent years. And annual income is a icremently increasing slowly."),
       p("Another takeaway takes place in the Poverty Rates by Rate in 2020. It showed where groups are more confused to poverty by state and each race had a characteristic 
-        of their own. Hispanics had hgiher rates of poverty in the Southern states. Blacks were more common in the south as well but had an influence in Northern and 
+        of their own. Hispanics had hgiher rates of poverty in the Southern states. Black americans were more common in the south as well but had an influence in Northern and 
         midwestern cities. This may be due to the great migration taken in the 1910-1940’s as they were trying to escape racial violence and pursue more oppertunities. "),
       p("And lastly, the last takeaway resides in age in comparison to age. It shows that ages under 18 were more exposed to poverty as they had 22% of their group considered 
         part of poverty. However, those of ages 65 and up have decreased in poverty rates beginning at 15.5% in 1975 to approximately 5% in 2020. However, in groups under 18 
@@ -187,14 +188,14 @@ report_panel <- tabPanel(
       br(),
       br(),
       h4(strong("Refrences")),
-      p("Tracking the COVID-19 Economy’s Effects on Food, Housing, and Employment Hardships. (2022, 
+      p("Tracking the COVID-19 Economy’s Effects on Food, Housing, and Employment Hardships.(2022, 
       February 10). Cbpp.https://www.cbpp.org/research/poverty-and-inequality/tracking-the-covid-19-
       economys-effects-on-food-housing-and#:~:text=The%20COVID%2D19%20pandemic%20and,unemployment%20
-      remained%20high%20throughout%202020."),
-      p("https://www.bls.gov/news.release/pdf/empsit.pdf"),
+      remained%20high%20throughout%202020.", align = "right"),
+      p("https://www.bls.gov/news.release/pdf/empsit.pdf", align ="right"),
       p("https://www.bls.gov/opub/mlr/2020/article/the-impact-of-the-covid-19-pandemic-on-food-price-
-      indexes-and-data-collection.htm"),
-      p("https://www.thecut.com/2022/10/shein-is-treating-workers-even-worse-than-you-thought.html")
+      indexes-and-data-collection.htm", align = "right"),
+      p("https://www.thecut.com/2022/10/shein-is-treating-workers-even-worse-than-you-thought.html", align = "right")
     ),
       
 
@@ -241,7 +242,7 @@ report_panel <- tabPanel(
       p("1) The number of persons employed part time for economic reasons decreased by 306,000 to 3.8 million in September"),
       p("2) The number of persons not in the labor force who currently want a job was little changed at 5.8 million in September and remains
         above its February 2020 level of 5.0 million"),
-      p("3 )Among the unemployed, the number of permanent job losers decreased by 173,000 to 1.2 million in September"),
+      p("3) Among the unemployed, the number of permanent job losers decreased by 173,000 to 1.2 million in September"),
       p("4) The number of discouraged workers, a subset of the marginally attached who believed that no jobs were available for them, increased 
         by 119,000 to 485,000 in September."),
       p("The pandemic impacted everyone but was not distributed evenly to all social classes. In fact, it remained more prevalent in groups 
@@ -290,28 +291,28 @@ report_panel <- tabPanel(
       
       h2(strong("Expected Implications")),
       hr(style = "border-top: 1px solid #000000;"),
-      p("Due to the idea that the economy globally is taking in affect due to chain markets experiencing disturbance and not being allowed to afford the current businesses, 
+      p("Due to the idea that the economy globally is taking in affect as the chain markets experiences disturbances and lack of money to afford the current businesses, 
         everyone is considered as stakeholders. In a more general sense, the two stakeholders are the people and businesses."),
       p("As the problem relies in supply and demand, implications that can be a possible income are those within the work force. Too make the necessary resources, this may 
         aim towards lower wages for workers in order to make up the cut of losses in return for acquiring the needed resources. A prime example of this would be workers in 
-        China that works for fast fashion: Shein. According to New York, it was noted that workders made 4,000 yuan per month — roughly $556 — to make 500 pieces of clothing 
+        China that works for fast fashion companies such as Shein. According to Sangeeta Singh - Kurtz, a writer for The Cut Magazine, she noted that workders made 4,000 yuan per month — roughly $556 — to make 500 pieces of clothing 
         per day, which is about 18 hour work days and one day off per month."),
-      p("Another implications that may follow suit are policymakers may withhold federal aid such as unemployment asstance, student loans, and many more economic reliefs that 
-        were sent out during the pandemic. Although the relief programs are meant to help those of need, it can also be used be withheld in order to manage the amount of economic 
-        debt. Would insure prices would remain the same, or at least to not skyrocket in market value."),
+      p("Another implication that may follow suit are policymakers possibly withholding federal aid such as unemployment asstance, student loans, and much more economic reliefs that 
+        were sent out during the pandemic. Although the relief programs are meant to help those of need, it can also be used against those in need. They can withhold benefits in order to manage the amount of economic 
+        debt. This practice would insure prices remain the same, or at least to not skyrocket in market value."),
       
       br(),
       br(),
       
       h2(strong("Limitations")),
       hr(style = "border-top: 1px solid #000000;"),
-      p("One thing that the data table fail to acomodate is the area of living. As some areas have low or high financial needs of living, it can have an effect on the statistics 
-        and general making desicions in classifying the social classes. Data does lack a few information to find solutions for the problem domain. May have to find data that is 
+      p("One thing that the data table fails to accommodate for is the area of living. As some areas that have low or high financial needs of living, it can have an effect on the statistics 
+        and general making desicions in classifying the social classes. Additionally, the data lacks a few informational parts needed to find solutions for the problem domain. May have to find data that is 
         more fitting. Since the information is geared towards those of occupation, it would leave a huge group of people not heing considered as they can be homeless. The data 
         does not provide enough - or any information that of the lowest class."),
-      p("Another limitation can be undocumated groups as they may work for jobs that is not affiliated with legal means to show record of payment. The US still have controversies in 
-        DACA - Deferred Actions for Childhood Arrivals which was introduced by Obama. This allowed for undocumented people to work and be voided of deportation. As it this movement is 
-        still in question, it can lead to many other groups to work without any records."),
+      p("Another limitation can be undocumated groups as they may work for jobs that are not affiliated with legal means to show record of payment. The US still have various
+      controversies in DACA - Deferred Actions for Childhood Arrivals - which was introduced by Obama. This allowed for undocumented people to work and be voided of deportation. 
+      As this movement is still in question, it can lead to many other groups to work without any records."),
       
       br(),
       br(),
@@ -319,7 +320,11 @@ report_panel <- tabPanel(
       h2(strong("Findings")),
       hr(style = "border-top: 1px solid #000000;"),
       p(strong("1. How has the the workforce in groups of minority been impacted?")),
-        p("We found that..."),
+        p("We found that minority groups especially the workforce has seen a lot of detrimental impacts. In our research, we 
+          saw that minority groups tend to have hgiher rates of poverty overall across the country. The highest percentage for Black Americans were seen in the Southern part of the US and it was 30%.
+          White Americans had the lowest percentages of poverty of the across the country - 15%, which was half of the poverty percentages of Black Americans. So upon analyzing we concluded that minorities, 
+          employed (the workforce) and unemployed had been disproportionately hit with poverty while their white counterparts had not endured as many negative 
+          impacts."),
       p(strong("2. What are the current trends/culture of each standing social classes?")),
       p("We found one notable trend of younger and middle aged Americans being more susceptible to poverty. 
       Our research indicated that people under 18 have the highest chance of being in poverty - the number
@@ -332,11 +337,14 @@ report_panel <- tabPanel(
       p(strong("3. How did Covid-19 affected finance in the long term?")),
       p("We found that COVID-19 did impact our economy in a way. The pandemic caused a 
         recession which led to flunctuations in gas prices. During our research we 
-        saw a decline in at the heights of the pandemic. This is due to the lack of transport needed during 
+        saw a decline in that as the pandemic reached it's heights. This is due to the lack of transport needed during 
         COVID 19 lockdowns which in turn caused a lack of demand for gas and ultimately led to low prices. 
         However, the falling demand from the pandemic era indicated the current extreme increase in gas prices 
         across our country. The surge in prices we see today are the result of efforts to make up for the loss. 
-        This highlights the economic blowbacks of the pandemic and just how much it influenced our daily lives."),
+        This highlights the economic blowbacks of the pandemic and just how much it influenced our daily lives. This 
+        also demonstrates how our economy usually works, whenever prices drop, there is usually an immediate rise after in order to make up for 
+        the loss during the drop. In our data visualizations for housing prices vs annual income this was seen in the decline of average housing costs during 2008 ($300,000 to $250,000), 
+        which is also another significant time for the US economy, because a recession occurred that year."),
       br(),
       br(),
       
@@ -344,11 +352,14 @@ report_panel <- tabPanel(
       hr(style = "border-top: 1px solid #000000;"),
       p("One of the goals of our project was to help people better understand our economy and 
         specifically look into how every day people are affected by our country's economic structure. 
-        In our findings, there were various socioeconomic implications analyzed. First we found trends in job in 
-        relation to income. Those with occupations in science, technology, engineering or mathematics tend to 
-        earn higher annual incomes than others in America. Lower earning occupations included: writers and teachers. 
-        For those many of them made thousands less of what STEM occupations made. This implied 
-        that economic status on a social level can be determined by career."),
+        In our findings, there were various socioeconomic implications analyzed. First, minority groups such as Black Americans, Hispanics, 
+        Asian/Native/Hawaiian/Pacific Islander, and Native Americans had higher instances of poverty in our country compared to White Americans.
+        This indicated that the workforce for those marginalized groups had significantly lower socioeconomic statuses of White Americans and were 
+        ultimately less likely to be able to afford things and become affluent in this economy. Second, trends show that our economy tends to have linear increases in prices for goods and services after periods of declines. 
+        This was noticed in our analysis of average income vs average housing costs. After the '08 recession housing costs kept rising higher and higher to make up for losses and 
+        ultimately Americans suffered to meet those high costs in real time because the average house cost post '08 is nearly 6 times the highest average income seen amongst Americans. 
+        Overall, our economy in order to work with declines in consumption tends to be 
+        unforgiving to the people who live in this country."),
       
       br(),
       br(),
@@ -359,8 +370,9 @@ report_panel <- tabPanel(
         influencing its behaviors. Through our project we saw how our economy is affected on an 
         individual level as well as extreme events, such as a global pandemic. By looking at our data
         it was clear to understand that our housing market is deeply relational to the economy. We saw how the housing prices declined during the 2008 
-        recession and then immediately shot up in its prices.That increase ultimately plays into socioeconomics in our society through allowing individuals 
-        from higher statuses to build wealth through their property. All in all, this project shows how important the economy is to our lives and hopefully teaches more about its significance.")
+        recession and then immediately shot up in its prices and that trend is evident currently as we battle against another recession as a result to a pandemic. 
+        That increase ultimately plays into socioeconomics in our society through allowing individuals from higher statuses to build wealth through their property. 
+        All in all, this project shows how important the economy is to our lives and hopefully teaches more about its significance.")
       
       
     )
